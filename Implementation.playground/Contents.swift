@@ -13,6 +13,7 @@ func random(between min: UInt32, and max: UInt32) -> Int {
 // Invoke (use) the function above
 random(between: 1, and: 50)
 
+
 //: ### Creating an empty array
 // Note the use of square brackets around the data type when the array is declared
 var numbers : [Int] = []
@@ -112,4 +113,54 @@ numbers
  */
 
 // Begin your implementation below...
+
+// Invoke (use) the function above
+random(between: 1, and: 13)
+
+// Make a unsorted list
+var unsorted : [Int] = []
+var sorted : [Int] = []
+sorted.insert(0, at: 0)
+// Fill the list with values
+for _ in 1...13 {
+    unsorted.append ( random(between: 1, and: 50) )
+    
+}
+// keep reapiting untill there is not values in the unsorted
+
+while unsorted.count > 0 {
+    
+    //Add the last number of the unsorted array to sorted
+    sorted.insert(unsorted[unsorted.count-1], at: sorted.count)
+    
+    //Compare the new value to other values
+    for i in stride(from: sorted.count - 1, through: 1, by: -1) {
+
+        if sorted[i] < sorted[i-1] {
+            let temporaryValue = sorted[i]
+            sorted[i] = sorted[i-1]
+            sorted[i-1] = temporaryValue
+//            let temporaryValue = numbers[0]
+//            numbers[0] = numbers[1]
+//            numbers[1] = temporaryValue
+        }
+    }
+    
+    
+    sorted
+
+    //Remove the last number from unsorted
+    unsorted.remove(at: unsorted.count - 1)
+    
+    unsorted
+}
+
+//// Print the index and value, from last to first
+//for i in stride(from: sorted.count - 1, through: 0, by: -1) {
+//    print("Index is \(i) and the value is \(numbers[i])")
+//}
+//print("==================")
+
+
+//
 
