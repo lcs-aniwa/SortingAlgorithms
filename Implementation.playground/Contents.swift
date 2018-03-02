@@ -120,7 +120,7 @@ random(between: 1, and: 13)
 // Make a unsorted list
 var unsorted : [Int] = []
 var sorted : [Int] = []
-sorted.insert(0, at: 0)
+
 // Fill the list with values
 for _ in 1...13 {
     unsorted.append ( random(between: 1, and: 50) )
@@ -136,31 +136,20 @@ while unsorted.count > 0 {
     //Compare the new value to other values
     for i in stride(from: sorted.count - 1, through: 1, by: -1) {
 
+        //If the new number is smaller, compare it to the number one down in the list
         if sorted[i] < sorted[i-1] {
+            //If the number is smaller, move it on the list
             let temporaryValue = sorted[i]
             sorted[i] = sorted[i-1]
             sorted[i-1] = temporaryValue
-//            let temporaryValue = numbers[0]
-//            numbers[0] = numbers[1]
-//            numbers[1] = temporaryValue
         }
     }
     
     
     sorted
 
-    //Remove the last number from unsorted
+    //Remove the last number from unsorted list
     unsorted.remove(at: unsorted.count - 1)
     
     unsorted
 }
-
-//// Print the index and value, from last to first
-//for i in stride(from: sorted.count - 1, through: 0, by: -1) {
-//    print("Index is \(i) and the value is \(numbers[i])")
-//}
-//print("==================")
-
-
-//
-
